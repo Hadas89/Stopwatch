@@ -161,11 +161,5 @@ stopcount.addEventListener('click', stopCount)
 resetcount.addEventListener('click', resetCount)
 
 
-//12.4 this task is way to complicated in WDI, try somewhere else (good vids around including of 30dayschallenge 
-//https://courses.wesbos.com/account/access/5a79a8df4ea3f06ee90376bf or https://www.youtube.com/results?search_query=stopwatch+javascript
-//also before these videos try to create the stopwatch to display without the oo: (i will be for seconds x for minutes?)
 
-//23/4 continue this app (alone) with the help of https://www.youtube.com/watch?v=jRhB1IG7uAw - oop so too difficult. try this https://www.youtube.com/watch?v=fF-vtP3sjPcas you progress
-//check why setinterval only works when function is fully written inside it
-//https://forum.freecodecamp.org/search?q=pomodoro%20difficult read - I imply from here that the stopwatch project is advanced FE
 
