@@ -6,17 +6,20 @@ body {
 	
 }
 
-span {
-
-}
 
 #watch {
 	border: 5px solid black;
 	padding:20px;
 }
+span {
+	display: inline;
+	width:20px;
+	font-family: monospace;
+}
 
-#startcount, #stopcount, #resetcount {
+#startresumecount, #pausecount, #resetcount {
 	float: left;
+	
 }
 
 
