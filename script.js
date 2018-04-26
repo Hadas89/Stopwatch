@@ -1,59 +1,76 @@
 console.log("check")
+console.log('countdown is not running')
+
 
 		var msDisplay = document.querySelector('.milliseconds')
 		var sDisplay = document.querySelector('.seconds')
 		var mDisplay = document.querySelector('.minutes')
 		ms = 0, s = 0 , m = 0
+		isOn = false;
+		console.log(isOn)
+		
+		
 
 var clockUpdate  = {
-
+	
 	update: function () {
+		this.isOn = true
+		console.log('countdown is running')
+		console.log(this.isOn)
 		Interval = setInterval(function() {
+
 			ms++;
-			msDisplay.innerHTML = ms;
+			msDisplay.innerHTML = ms < 10 ?  "00" + ms : ms <100 ? "0" + ms: ms
 			
 
-			if (ms >10) {
+			if (ms >= 300) {
 				ms = 0;
 
 					s++;
-					sDisplay.innerHTML = s + ":"
+					sDisplay.innerHTML = s < 10 ?  "0" + s + ":" : s + ":"
 					
 
-					if (s > 59) {
+					if (s >= 59) {
 						s = 0;
 
 						m++;
-						mDisplay.innerHTML = m + ":"
+						mDisplay.innerHTML =  m < 10 ?  "0" + m + ":" : m + ":"
 
 					}
 			}
-}, 100)
+}, 1)
 		},
 
-	startResumeCount : function () {
+	startCount : function () {
+
 	
-	clockUpdate.update()
+		clockUpdate.update()
+	
 
 },
 
 	pauseCount : function () {
-	
+	console.log('countdown is not running')
 	  clearInterval(Interval)
 	 
 },
 
 	resetCount : function () {
+
+	
+	 clearInterval(Interval)
 	document.querySelector('.milliseconds').innerHTML ="000"
-	document.querySelector('.seconds').innerHTML = "00 :"
-	document.querySelector('.minutes').innerHTML = "00 :"
+	document.querySelector('.seconds').innerHTML = "00:"
+	document.querySelector('.minutes').innerHTML = "00:"
+	ms = 0, s = 0 , m = 0
+
 	},
 	
 }
 
 
 
-startresumecount.addEventListener('click', clockUpdate.startResumeCount)
+startcount.addEventListener('click', clockUpdate.startCount)
 pausecount.addEventListener('click', clockUpdate.pauseCount)
 resetcount.addEventListener('click', clockUpdate.resetCount)
 
