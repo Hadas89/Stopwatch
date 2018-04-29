@@ -1,22 +1,21 @@
-console.log("check")
-console.log('countdown is not running')
-
 
 		var msDisplay = document.querySelector('.milliseconds')
 		var sDisplay = document.querySelector('.seconds')
 		var mDisplay = document.querySelector('.minutes')
 		ms = 0, s = 0 , m = 0
 		isOn = false;
-		console.log(isOn)
 		
+		console.log("check")	
+		console.log('countdown is not running')
+		console.log(isOn)
 		
 
 var clockUpdate  = {
 	
 	update: function () {
-		this.isOn = true
+		isOn = true
 		console.log('countdown is running')
-		console.log(this.isOn)
+		console.log(isOn)
 		Interval = setInterval(function() {
 
 			ms++;
@@ -43,26 +42,46 @@ var clockUpdate  = {
 
 	startCount : function () {
 
-	
-		clockUpdate.update()
-	
+		if (isOn == false) {
+			document.getElementsByTagName('button')[2].id = 'pausebutton'
+			document.getElementsByTagName('button')[1].id = 'resetbutton'
+			document.getElementsByTagName('button')[0].id = 'startbuttonclicked'
+		clockUpdate.update() 
+	} else {
+		return
+	}
+
 
 },
 
 	pauseCount : function () {
+		isOn = false
+		if (isOn == false) {
+			document.getElementsByTagName('button')[2].id = 'resetbutton'
+		document.getElementsByTagName('button')[1].id = 'pausebuttonclicked'
+		document.getElementsByTagName('button')[0].id = 'startbutton'
+	}
 	console.log('countdown is not running')
+	console.log(isOn)
 	  clearInterval(Interval)
 	 
 },
 
 	resetCount : function () {
+		if (isOn == false) {
 
+			document.getElementsByTagName('button')[2].id = 'resetbuttonclicked'
+		document.getElementsByTagName('button')[1].id = 'pausebutton'
+		document.getElementsByTagName('button')[0].id = 'startbutton'
 	
 	 clearInterval(Interval)
 	document.querySelector('.milliseconds').innerHTML ="000"
 	document.querySelector('.seconds').innerHTML = "00:"
 	document.querySelector('.minutes').innerHTML = "00:"
-	ms = 0, s = 0 , m = 0
+	ms = 0, s = 0 , m = 0 
+} else {
+	return
+}
 
 	},
 	
@@ -70,9 +89,9 @@ var clockUpdate  = {
 
 
 
-startcount.addEventListener('click', clockUpdate.startCount)
-pausecount.addEventListener('click', clockUpdate.pauseCount)
-resetcount.addEventListener('click', clockUpdate.resetCount)
+startbutton.addEventListener('click', clockUpdate.startCount)
+pausebutton.addEventListener('click', clockUpdate.pauseCount)
+resetbutton.addEventListener('click', clockUpdate.resetCount)
 
 
 //*previous tries*
@@ -213,3 +232,7 @@ resetcount.addEventListener('click', clockUpdate.resetCount)
 //25/4 try to tackle resuming from the last point on time, continue googling/wdi video lesson (currentTime = 0)
 
 //26.4 complete app 
+
+//27.4 solve the bug that it increase the pace every time start is clicked (already in progress by isOn variable) - done
+
+//29.4 done for now -  add laps and more later on 
